@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uma Pergunta Importante ❤️</title>
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
+      touch-action: manipulation;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      position: relative;
+      width: 90%;
+      max-width: 350px;
+      height: 260px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 22px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #sim {
+      background: #4CAF50;
+      color: white;
+    }
+
+    #nao {
+      background: #f44336;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Amor, tu amas-me? ❤️</h1>
+    <button id="sim" onclick="respostaSim()">Sim</button>
+    <button id="nao">Não</button>
+  </div>
+
+  <script>
+    const naoBtn = document.getElementById("nao");
+    const card = document.getElementById("card");
+
+    function moverBotao() {
+      const maxX = card.clientWidth - naoBtn.offsetWidth;
+      const maxY = card.clientHeight - naoBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      naoBtn.style.left = x + "px";
+      naoBtn.style.top = y + "px";
+    }
+
+    naoBtn.addEventListener("touchstart", moverBotao);
+    naoBtn.addEventListener("mouseover", moverBotao);
+
+    function respostaSim() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+          font-family:Arial;
+          text-align:center;
+        ">
+          <h1 style="color:white;font-size:28px;">
+            Sabia 😍❤️<br>Amo-te!
+          </h1>
+        </div>
+      `;
+    }
+
+    moverBotao();
+  </script>
+
+</body>
+</html>
